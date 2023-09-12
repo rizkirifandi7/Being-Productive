@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pendaftaran</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg fixed-bottom">
+            <div class="container-fluid justify-content-center mb-3">
+                <ul class="navbar-nav navbar-bottom d-block">
+                    <li class="nav-item text-center d-inline-flex mx-4">
+                        <button class="navBtn" onclick="showTab('formTab')">Registrasi</button>
+                    </li>
+                    <li class="nav-item text-center d-inline-flex mx-4">
+                        <button class="navBtn" onclick="showTab('listTab')">List Pendaftar</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="formTab" class="container tab active">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6 position-absolute top-50 start-50 translate-middle">
+                    <form class="justify-content-center" id="formPendaftaran">
+                        <h2 class="fw-bold mb-4">Registrasi</h2>
+
+                        <div class="mb-2">
+                            <label class="form-label" for="nama">Nama</label>
+                            <input class="form-control " type="text" id="nama" name="nama" required/>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <label class="form-label" for="umur">Umur</label>
+                            <input class="form-control " type="number" id="umur" name="umur"/>
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="form-label" for="uangSangu">Uang Sangu</label>
+                            <input class="form-control " type="number" id="uangSangu" name="uangSangu"/>
+                        </div>
+                        
+                        <input class="submitBtn mt-4" type="submit" value="Submit" />
+                    </form>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+
+        <div id="listTab" class="tab">
+            <table id="tabelPendaftar">
+                
+            </table>
+            <p id="resume"></p>
+        </div>
+
+        <script type="text/javascript" src="js/pendaftaran.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript">
+			$(document).ready( function () {
+			$('#tabelPendaftar').DataTable({
+				pageLength: 5,
+				lengthMenu: [[5, 10, 20, -1], [5, 10, 15, 'All']],
+				paging: true,
+				searching: true,
+				ordering: true,
+				stateSave: true,
+				language: {
+					search: '',
+					searchPlaceholder: "Search",
+					"lengthMenu": "Show _MENU_" },
+			});
+		} );
+	    </script>
+	    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+    </body>
+</html>
